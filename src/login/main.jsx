@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import '../../css/site.css';
+import SiteNav from '../SiteNav.jsx';
 
 function LoginForm({ credentials, setCredentials, onCreateAccount }) {
   const [message, setMessage] = useState('');
@@ -16,7 +17,25 @@ function CreateAccountForm({ credentials, setCredentials, onComplete }) {
 function LoginApp() {
   const [showAccount, setShowAccount] = useState(false);
   const [credentials, setCredentials] = useState({ login: '', password: '' });
-  return <><nav className="navbar site-nav"><div className="container"><a className="navbar-brand" href="/"><span className="brand-mark">S</span> StudyBoard</a><a className="app-back" href="/">← Back to home</a></div></nav><main className="auth-page"><div className="auth-layout"><div className="auth-visual image-slot" role="img" aria-label="Image placeholder for a StudyBoard learning moment"><span>IMAGE PLACEHOLDER<br /><small>Teammate: add learning visual here</small></span><div className="auth-scribble">learn<br />what<br />matters</div></div><div className="auth-card">{showAccount ? <CreateAccountForm credentials={credentials} setCredentials={setCredentials} onComplete={() => setShowAccount(false)} /> : <LoginForm credentials={credentials} setCredentials={setCredentials} onCreateAccount={() => setShowAccount(true)} />}</div></div></main></>;
+  return <><SiteNav /><main className="auth-page">
+      <div className="auth-layout">
+    <div className="auth-visual image-slot">
+      <img src="/images/signin.jpg" alt="Handwritten study notes" style={{ width: '100%', aspectRatio: '4 / 3', objectFit: 'cover', objectPosition: 'top center', borderRadius: 28 }} />
+      <div className="auth-scribble">learn<br />what<br />matters
+      </div>
+      <p className="auth-caption">A glimpse from a student's class notes.</p>
+    </div>
+    <div className="d-flex flex-column flex-lg-row gap-4">
+      <div className="auth-card flex-fill">
+        <LoginForm credentials={credentials} setCredentials={setCredentials} onCreateAccount={() => setShowAccount(true)} />
+      </div>
+      {showAccount && (
+        <div className="auth-card flex-fill">
+          <CreateAccountForm credentials={credentials} setCredentials={setCredentials} onComplete={() => setShowAccount(false)} />
+        </div>
+      )}
+    </div>
+    </div></main></>;
 }
 
 createRoot(document.getElementById('root')).render(<LoginApp />);

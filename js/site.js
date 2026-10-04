@@ -13,4 +13,4 @@ if (nav) {
 if (footer) footer.innerHTML = `<footer class="site-footer"><div class="container d-flex flex-column flex-md-row justify-content-between gap-2"><span>© 2026 StudyBoard</span><span>Learning, connected.</span></div></footer>`;
 
 const contactForm = document.querySelector('#contact-form');
-if (contactForm) contactForm.addEventListener('submit', (event) => { event.preventDefault(); document.querySelector('#contact-status').textContent = 'Thanks — your message has been staged for the StudyBoard team.'; contactForm.reset(); });
+if (contactForm) contactForm.addEventListener('submit', (event) => { event.preventDefault(); document.querySelector('#contact-status').textContent = 'Thanks! Your message has reached the StudyBoard team.'; contactForm.reset(); });
