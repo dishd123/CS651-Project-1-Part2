@@ -20,9 +20,9 @@ CS651 Web Systems, CSU East Bay, Fall 2026.
 | Member | Part |
 | --- | --- |
 | Huda Joad | Part 1: the website (HTML, CSS, Bootstrap, React), the Dockerfile and httpd.conf |
-| Disha Deshmukh | Part 2 (this repository: the Docker image, ECR, EC2, the Special Issues, the wiki and the video) and Part 3 |
-| Venkatesh Katta | Group member |
-| Ndeye Traore | Group member |
+| Disha Deshmukh | Part 2 (this repository: the Docker image, ECR, EC2, the Special Issues, the wiki and the video) |
+| Venkatesh Katta | Part 3 |
+| Ndeye Traore | Part 3 |
 
 The site code was copied from Huda Joad's Part 1 repository and then updated for Part 2.
 
