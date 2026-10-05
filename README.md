@@ -1,38 +1,52 @@
-# CS651 Project 1 — StudyBoard
+# CS651 Project 1 Part 2: StudyBoard on AWS EC2 with Docker
 
-StudyBoard is a Computer Vision and ML startup concept for connecting whiteboard photographs with the spoken explanation that accompanied them. This repository contains the Project 1 frontend foundation:
+StudyBoard is the website of our group's startup idea: a computer vision and machine learning product that turns photos of class whiteboards and notes into readable notes, flashcards and a study tutor. This repository holds the full site source and deploys it on an Amazon EC2 server inside one Docker container with Apache httpd, using an image stored in Amazon ECR.
 
-- Static Home, About, and Contact pages using HTML, CSS, Bootstrap, and client-side JavaScript.
-- A React SPA at `/app/` with reusable session, board, flashcard, and tutor components; state changes demonstrate session selection, flashcard flipping/navigation, and tutor interaction.
-- A React-only sign-in page at `/login/`. Its create-account form appears beside the original login form on wide screens and returns the newly entered login/password values to the login form when submitted.
-- An Apache Docker image in [`DockerContainer/`](DockerContainer/) for the EC2 deployment portion.
+| Item | Value |
+| --- | --- |
+| Live site | http://studyboard.tech/ |
+| Backup address | http://23.21.105.57/ (the server's Elastic IP) |
+| Wiki | https://github.com/dishd123/CS651-Project-1-Part2/wiki |
+| YouTube video | VIDEO-LINK-PENDING |
+| Special Issues PDF | [docs/Special-Issues.pdf](docs/Special-Issues.pdf) |
+| Build and deploy steps | [DockerContainer/README.md](DockerContainer/README.md) |
 
-## Run in WSL
+The server runs in an AWS Academy Learner Lab, which stops it whenever no lab session is open (sessions last 4 hours). If the site does not load, the lab is not running; the wiki and the video show it running at this address. The site is plain HTTP: type `http://` in front of the address, and if Chrome says the connection is not secure, choose Continue to site.
 
-Install Node.js 20+ and Docker Desktop/Engine in WSL if they are not already available. Then run:
+## Who did what
 
-```bash
-npm install
-npm run dev -- --host 0.0.0.0
+CS651 Web Systems, CSU East Bay, Fall 2026.
+
+| Member | Part |
+| --- | --- |
+| Huda Joad | Part 1: the website (HTML, CSS, Bootstrap, React), the Dockerfile and httpd.conf |
+| Disha Deshmukh | Part 2 (this repository: the Docker image, ECR, EC2, the Special Issues, the wiki and the video) and Part 3 |
+| Venkatesh Katta | Group member |
+| Ndeye Traore | Group member |
+
+The site code was copied from Huda Joad's Part 1 repository and then updated for Part 2.
+
+## What is where
+
+| Path | What it holds |
+| --- | --- |
+| `DockerContainer/` | `Dockerfile`, `httpd.conf`, and the README with the build and deploy steps |
+| `index.html`, `about.html`, `contact.html` | The Home, About and Contact pages |
+| `app/`, `login/` | The App page and the Sign In page. Each HTML file is an empty shell that loads a React entry point from `src/` |
+| `src/` | The React source: the App page (`src/app/`), the Sign In page (`src/login/`) and the shared menu `SiteNav.jsx` |
+| `css/site.css`, `js/site.js` | The site's styles, and the shared menu, footer and contact form script for the plain HTML pages |
+| `public/images/` | The photos used on the pages |
+| `docs/Special-Issues.pdf` | The answers to Special Issues 1 and 2 |
+
+## Run it locally
+
+With Docker Desktop, from the repository root:
+
+```
+docker build -f DockerContainer/Dockerfile -t project1-part2:local .
+docker run --rm -p 8080:80 project1-part2:local
 ```
 
-Visit the URL Vite prints, then test `/`, `/about.html`, `/contact.html`, `/app/`, and `/login/`.
+Then open `http://localhost:8080`. Without Docker: `npm install`, then `npm run dev`.
 
-## Production build
-
-```bash
-npm run build
-```
-
-The generated `dist/` directory contains the deployable site.
-
-## Docker / Apache
-
-From the repository root:
-
-```bash
-docker build -f DockerContainer/Dockerfile -t studyboard:project1 .
-docker run --rm -p 8080:80 studyboard:project1
-```
-
-Open <http://localhost:8080>. Replace the marked image placeholders with the teammate's final image assets before submission. Project 2 services, authentication, Gemini, ADK, Firestore, and AWS setup documentation are intentionally out of scope for this implementation.
+AI use: Claude (Anthropic), ChatGPT (OpenAI) and GitHub Copilot helped plan the deployment steps, work through code and commands, check AWS prices and limits, and draft and edit the documentation. I, Disha Deshmukh, ran every command, made every console change and took every screenshot.
