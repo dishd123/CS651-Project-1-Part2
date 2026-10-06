@@ -8,8 +8,6 @@ This folder holds everything needed to package the StudyBoard site as one Docker
 | `httpd.conf` | Apache configuration: port 80, the modules the site needs, `DocumentRoot`, `index.html` for folders, no folder listings, `/app` and `/login` redirected to `/app/` and `/login/`, and logs sent to `docker logs`. |
 | `README.md` | This file. |
 
-The `Dockerfile` and `httpd.conf` come from the Part 1 site by Huda Joad.
-
 ## Architecture
 
 Build and run on the same CPU architecture. On a Mac with an Apple chip, Docker builds `linux/arm64` images, which run natively on Graviton instances such as t4g.small. That is the setup used here. For an x86 instance such as t3.micro, add `--platform linux/amd64` to `docker build`.

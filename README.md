@@ -13,18 +13,9 @@ StudyBoard is the website of our group's startup idea: a computer vision and mac
 
 The server runs in an AWS Academy Learner Lab, which stops it whenever no lab session is open (sessions last 4 hours). If the site does not load, the lab is not running; the wiki and the video show it running at this address. The site is plain HTTP: type `http://` in front of the address, and if Chrome says the connection is not secure, choose Continue to site.
 
-## Who did what
+## Group
 
-CS651 Web Systems, CSU East Bay, Fall 2026.
-
-| Member | Part |
-| --- | --- |
-| Huda Joad | Part 1: the website (HTML, CSS, Bootstrap, React), the Dockerfile and httpd.conf |
-| Disha Deshmukh | Part 2 (this repository: the Docker image, ECR, EC2, the Special Issues, the wiki and the video) |
-| Venkatesh Katta | Part 3 |
-| Ndeye Traore | Part 3 |
-
-The site code was copied from Huda Joad's Part 1 repository and then updated for Part 2.
+CS651 Web Systems, CSU East Bay, Fall 2026: Disha Deshmukh, Huda Joad, Venkatesh Katta, Ndeye Traore.
 
 ## What is where
 
