@@ -7,7 +7,7 @@ StudyBoard is the website of our group's startup idea: a computer vision and mac
 | Live site | http://studyboard.tech/ |
 | Backup address | http://23.21.105.57/ (the server's Elastic IP) |
 | Wiki | https://github.com/dishd123/CS651-Project-1-Part2/wiki |
-| YouTube video | VIDEO-LINK-PENDING |
+| YouTube video | https://youtu.be/u4GmtcjTVLQ |
 | Special Issues PDF | [docs/Special-Issues.pdf](docs/Special-Issues.pdf) |
 | Build and deploy steps | [DockerContainer/README.md](DockerContainer/README.md) |
 
